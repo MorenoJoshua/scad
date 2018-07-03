@@ -2,7 +2,6 @@ r = 4;
 th = 0.8;
 
 off = 0.3;
-$fn = 128;
 //rotate_extrude(20, 40)
 
 module rc(a){
@@ -11,12 +10,12 @@ module rc(a){
   
 }
 
-linear_extrude(15, twist=360, slices=260)
+linear_extrude(15, twist=360, slices=360/16)
 
-offset(off) offset(-off)
+offset(off) offset(-off, $fn = 32)
 rc(180)
 difference(){
-
+$fn = 32;
 union(){
   intersection() {
     difference() {
